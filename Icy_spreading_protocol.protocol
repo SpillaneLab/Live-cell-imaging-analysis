@@ -1,0 +1,392 @@
+<protocol VERSION="4">
+<blocks>
+<workflow ID="1760166480" blockType="plugins.adufour.blocks.lang.SequenceFileBatch" className="plugins.adufour.blocks.lang.SequenceFileBatch" collapsed="false" definedName="Sequence file batch" height="1015" keepsResults="true" width="2410" xLocation="6" yLocation="0">
+<blocks>
+<block CommandLineID="" ID="2095572053" blockType="plugins.adufour.blocks.tools.input.Sequence" className="plugins.adufour.blocks.tools.input.Sequence" collapsed="false" definedName="Sequence" height="61" keepsResults="true" width="165" xLocation="305" yLocation="18">
+<variables>
+<input>
+<variable ID="input sequence" name="sequence" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1876286716" blockType="plugins.tprovoost.sequenceblocks.creation.DuplicateSequence" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Duplicate sequence" height="83" keepsResults="true" width="229" xLocation="516" yLocation="16">
+<variables>
+<input>
+<variable ID="sequence" name="sequence" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="duplicated" name="duplicated" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1318635885" blockType="plugins.adufour.blocks.tools.Display" className="plugins.adufour.blocks.tools.Display" collapsed="false" definedName="Display" height="207" keepsResults="true" width="210" xLocation="24" yLocation="106">
+<variables>
+<input>
+<variable ID="object" name="object" runtime="false" type="icy.sequence.Sequence" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1442693514" blockType="plugins.tprovoost.sequenceblocks.convert.ConvertStack" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Convert stack" height="92" keepsResults="true" width="235" xLocation="16" yLocation="322">
+<variables>
+<input>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="Type Wanted" name="Type Wanted" runtime="false" value="TIME" visible="true"/>
+</input>
+<output>
+<variable ID="out" name="Out" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="126404928" blockType="plugins.adufour.blocks.tools.Display" className="plugins.adufour.blocks.tools.Display" collapsed="false" definedName="Display" height="244" keepsResults="true" width="276" xLocation="12" yLocation="432">
+<variables>
+<input>
+<variable ID="object" name="object" runtime="false" type="icy.sequence.Sequence" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1443121394" blockType="plugins.adufour.thresholder.KMeansThresholdBlock" className="plugins.adufour.thresholder.Thresholder" collapsed="false" definedName="K means threshold" height="133" keepsResults="true" width="205" xLocation="34" yLocation="747">
+<variables>
+<input>
+<variable ID="Input" name="Input" runtime="false" visible="true"/>
+<variable ID="Channel" name="Channel" runtime="false" value="1" visible="true"/>
+<variable ID="Classes" name="Classes" runtime="false" value="2" visible="true"/>
+</input>
+<output>
+<variable ID="thresholds" name="thresholds" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1307858533" blockType="plugins.adufour.thresholder.Thresholder" className="plugins.adufour.thresholder.Thresholder" collapsed="false" definedName="Thresholder" height="178" keepsResults="true" width="300" xLocation="359" yLocation="767">
+<variables>
+<input>
+<variable ID="Input" name="Input" runtime="false" visible="true"/>
+<variable ID="channel" name="channel" runtime="false" value="1" visible="true"/>
+<variable ID="Manual thresholds" name="Manual thresholds" runtime="false" visible="true"/>
+<variable ID="Treat as percentiles" name="Treat as percentiles" runtime="false" value="false" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="Binary output" runtime="false" visible="true"/>
+<variable ID="ROI" name="ROI" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="81858938" blockType="plugins.adufour.morphology.FillHolesInROI" className="plugins.adufour.morphology.FillHolesInROI" collapsed="false" definedName="Fill holes in ROI" height="87" keepsResults="true" width="239" xLocation="730" yLocation="811">
+<variables>
+<input>
+<variable ID="List of ROI" name="List of ROI" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="List of hole-filled ROI" name="List of hole-filled ROI" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1782446636" blockType="plugins.stef.roi.bloc.property.SetROIProperty" className="plugins.stef.roi.bloc.RoiBlocks" collapsed="false" definedName="Set ROI property" height="111" keepsResults="true" width="219" xLocation="1004" yLocation="808">
+<variables>
+<input>
+<variable ID="rois" name="ROI(s)" runtime="false" visible="true"/>
+<variable ID="property" name="Property" runtime="false" value="Area" visible="true"/>
+<variable ID="value" name="Value" runtime="false" value="0.0121" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="203970758" blockType="plugins.stef.roi.bloc.op.FilterROI" className="plugins.stef.roi.bloc.RoiBlocks" collapsed="false" definedName="Filter ROI" height="171" keepsResults="true" width="259" xLocation="1324" yLocation="797">
+<variables>
+<input>
+<variable ID="roi" name="ROI(s)" runtime="false" visible="true"/>
+<variable ID="sequence" name="Sequence" runtime="false" value="Active Sequence" visible="true"/>
+<variable ID="descriptors" name="Filter on" runtime="false" visible="true"/>
+<variable ID="operator" name="Accept if" runtime="false" value="GREATER" visible="true"/>
+<variable ID="value" name="Value" runtime="false" value="0.0121" visible="true"/>
+</input>
+<output>
+<variable ID="out" name="Filtered ROI(s)" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1804932202" blockType="plugins.tprovoost.sequenceblocks.add.AddRois" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Add rois" height="106" keepsResults="true" width="277" xLocation="1648" yLocation="815">
+<variables>
+<input>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="rois(s)" name="Roi(s)" runtime="false" visible="true"/>
+<variable ID="remove" name="Remove previous" runtime="false" value="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1379853319" blockType="plugins.stef.roi.bloc.convert.ROIToMask" className="plugins.stef.roi.bloc.RoiBlocks" collapsed="false" definedName="ROI to mask" height="83" keepsResults="true" width="180" xLocation="1960" yLocation="671">
+<variables>
+<input>
+<variable ID="input" name="Roi(s)" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="output" name="Mask roi(s)" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1922150927" blockType="plugins.adufour.blocks.tools.roi.AddROIToSequence" className="plugins.adufour.blocks.tools.roi.AddROIToSequence" collapsed="false" definedName="Add ROI to sequence" height="108" keepsResults="true" width="236" xLocation="1629" yLocation="548">
+<variables>
+<input>
+<variable ID="target sequence" name="Source" runtime="false" visible="true"/>
+<variable ID="input rois" name="ROI to add" runtime="false" visible="true"/>
+<variable ID="replace existing" name="Overwrite" runtime="false" value="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="345502676" blockType="plugins.stef.roi.bloc.op.SortROI" className="plugins.stef.roi.bloc.RoiBlocks" collapsed="false" definedName="Sort ROI" height="152" keepsResults="true" width="244" xLocation="1960" yLocation="387">
+<variables>
+<input>
+<variable ID="roi" name="ROI(s)" runtime="false" visible="true"/>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="descriptors" name="Sort on" runtime="false" value="Position T" visible="true"/>
+<variable ID="reverse" name="Reverse" runtime="false" value="false" visible="true"/>
+</input>
+<output>
+<variable ID="out" name="Sorted ROI(s)" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1620334838" blockType="plugins.adufour.roi.ROIMeasures" className="plugins.adufour.roi.ROIMeasures" collapsed="false" definedName="ROI Statistics" height="128" keepsResults="true" width="289" xLocation="902" yLocation="462">
+<variables>
+<input>
+<variable ID="measures" name="Select features..." runtime="false" value="1682823708936" visible="true"/>
+<variable ID="Regions of interest" name="Regions of interest" runtime="false" visible="true"/>
+<variable ID="Sequence" name="Sequence" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="Workbook" name="Workbook" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1821937587" blockType="plugins.tprovoost.sequenceblocks.infos.GetMetaData" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Get meta data" height="331" keepsResults="true" width="217" xLocation="785" yLocation="7">
+<variables>
+<input>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="metadata" name="Metadata" runtime="false" visible="true"/>
+<variable ID="name" name="Name" runtime="false" visible="true"/>
+<variable ID="seriesIndex" name="Series index" runtime="false" visible="true"/>
+<variable ID="Pixel Size X (mm)" name="Pixel Size X (µm)" runtime="false" visible="true"/>
+<variable ID="Pixel Size Y (mm)" name="Pixel Size Y (µm)" runtime="false" visible="true"/>
+<variable ID="Pixel Size Z (mm)" name="Pixel Size Z (µm)" runtime="false" visible="true"/>
+<variable ID="Time interval T (ms)" name="Time interval T (s)" runtime="false" visible="true"/>
+<variable ID="positionx" name="Position X (µm)" runtime="false" visible="true"/>
+<variable ID="positiony" name="Position Y (µm)" runtime="false" visible="true"/>
+<variable ID="positionz" name="Position Z (µm)" runtime="false" visible="true"/>
+<variable ID="originResolution" name="Resolution" runtime="false" visible="true"/>
+<variable ID="originRegion" name="Region" runtime="false" visible="true"/>
+<variable ID="originZMin" name="Z min" runtime="false" visible="true"/>
+<variable ID="originZMax" name="Z max" runtime="false" visible="true"/>
+<variable ID="originTMin" name="T min" runtime="false" visible="true"/>
+<variable ID="originTMax" name="T max" runtime="false" visible="true"/>
+<variable ID="originChannel" name="Channel" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="211815333" blockType="plugins.tprovoost.sequenceblocks.infos.SetName" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Set name" height="86" keepsResults="true" width="229" xLocation="1054" yLocation="4">
+<variables>
+<input>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="name" name="Name" runtime="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="478683544" blockType="plugins.adufour.blocks.tools.io.CreateFolder" className="plugins.adufour.blocks.tools.io.CreateFolder" collapsed="false" definedName="Create folder" height="108" keepsResults="true" width="218" xLocation="1275" yLocation="106">
+<variables>
+<input>
+<variable ID="parent folder" name="Base folder" runtime="false" value="C:\Users\k19040176\OneDrive - King's College London\Temp folder\Analysis\DPPC_wo_ICAM_results" visible="true"/>
+<variable ID="folder name" name="Folder name" runtime="false" visible="true"/>
+</input>
+<output>
+<variable ID="new folder" name="New folder" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="1407393703" blockType="plugins.adufour.blocks.tools.io.AppendFilePath" className="plugins.adufour.blocks.tools.io.AppendFilePath" collapsed="false" definedName="Append file path" height="163" keepsResults="true" width="275" xLocation="1880" yLocation="103">
+<variables>
+<input>
+<variable ID="input file" name="Current file" runtime="false" type="java.io.File" visible="true"/>
+<variable ID="remove ext." name="Remove extension" runtime="false" value="false" visible="true"/>
+<variable ID="suffix" name="Add suffix" runtime="false" value="_processed" visible="true"/>
+</input>
+<output>
+<variable ID="output file" name="New file" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="98203601" blockType="plugins.adufour.blocks.tools.io.WorkbookToFile" className="plugins.adufour.blocks.tools.io.WorkbookToFile" collapsed="false" definedName="Workbook to file" height="325" keepsResults="true" width="516" xLocation="358" yLocation="423">
+<variables>
+<input>
+<variable ID="workbook" name="workbook" runtime="false" visible="true"/>
+<variable ID="file format" name="file format" runtime="false" value="Spreadsheet" visible="true"/>
+<variable ID="output file" name="output file" runtime="false" visible="true"/>
+<variable ID="If file exists" name="If file exists" runtime="false" value="Overwrite" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+<block ID="1089021354" blockType="plugins.adufour.blocks.tools.io.AppendFilePath" className="plugins.adufour.blocks.tools.io.AppendFilePath" collapsed="false" definedName="Append file path" height="143" keepsResults="true" width="233" xLocation="1561" yLocation="191">
+<variables>
+<input>
+<variable ID="input file" name="Current file" runtime="false" type="java.io.File" visible="true"/>
+<variable ID="remove ext." name="Remove extension" runtime="false" value="false" visible="true"/>
+<variable ID="suffix" name="Add suffix" runtime="false" value="_ROI_output" visible="true"/>
+</input>
+<output>
+<variable ID="output file" name="New file" runtime="false" visible="true"/>
+</output>
+</variables>
+</block>
+<block ID="279905050" blockType="plugins.tprovoost.sequenceblocks.files.SaveSequence" className="plugins.tprovoost.sequenceblocks.SequenceBlocks" collapsed="false" definedName="Save sequence" height="155" keepsResults="true" width="245" xLocation="1355" yLocation="453">
+<variables>
+<input>
+<variable ID="file" name="File" runtime="false" type="java.io.File" visible="true"/>
+<variable ID="sequence" name="Sequence" runtime="false" visible="true"/>
+<variable ID="format" name="Format" runtime="false" value="TIFF" visible="true"/>
+<variable ID="overwrite" name="Overwrite" runtime="false" value="true" visible="true"/>
+<variable ID="multiple file" name="Multiple file" runtime="false" value="false" visible="true"/>
+</input>
+<output/>
+</variables>
+</block>
+</blocks>
+<links>
+<link dstBlockID="2095572053" dstVarID="input sequence" srcBlockID="1760166480" srcVarID="Sequence"/>
+<link dstBlockID="1876286716" dstVarID="sequence" srcBlockID="2095572053" srcVarID="input sequence"/>
+<link dstBlockID="1318635885" dstVarID="object" srcBlockID="1876286716" srcVarID="duplicated"/>
+<link dstBlockID="1821937587" dstVarID="sequence" srcBlockID="1876286716" srcVarID="duplicated"/>
+<link dstBlockID="1442693514" dstVarID="sequence" srcBlockID="1318635885" srcVarID="object" srcVarType="icy.sequence.Sequence"/>
+<link dstBlockID="126404928" dstVarID="object" srcBlockID="1442693514" srcVarID="out"/>
+<link dstBlockID="1804932202" dstVarID="sequence" srcBlockID="1442693514" srcVarID="out"/>
+<link dstBlockID="1922150927" dstVarID="target sequence" srcBlockID="1442693514" srcVarID="out"/>
+<link dstBlockID="1443121394" dstVarID="Input" srcBlockID="126404928" srcVarID="object" srcVarType="icy.sequence.Sequence"/>
+<link dstBlockID="1307858533" dstVarID="Input" srcBlockID="1443121394" srcVarID="Input"/>
+<link dstBlockID="1307858533" dstVarID="Manual thresholds" srcBlockID="1443121394" srcVarID="thresholds"/>
+<link dstBlockID="81858938" dstVarID="List of ROI" srcBlockID="1307858533" srcVarID="ROI"/>
+<link dstBlockID="1782446636" dstVarID="rois" srcBlockID="81858938" srcVarID="List of ROI"/>
+<link dstBlockID="203970758" dstVarID="descriptors" srcBlockID="1782446636" srcVarID="property"/>
+<link dstBlockID="203970758" dstVarID="roi" srcBlockID="1782446636" srcVarID="rois"/>
+<link dstBlockID="1804932202" dstVarID="rois(s)" srcBlockID="203970758" srcVarID="out"/>
+<link dstBlockID="1379853319" dstVarID="input" srcBlockID="1804932202" srcVarID="rois(s)"/>
+<link dstBlockID="1922150927" dstVarID="input rois" srcBlockID="1379853319" srcVarID="output"/>
+<link dstBlockID="279905050" dstVarID="sequence" srcBlockID="1922150927" srcVarID="target sequence"/>
+<link dstBlockID="345502676" dstVarID="sequence" srcBlockID="1922150927" srcVarID="target sequence"/>
+<link dstBlockID="345502676" dstVarID="roi" srcBlockID="1922150927" srcVarID="input rois"/>
+<link dstBlockID="1620334838" dstVarID="Sequence" srcBlockID="345502676" srcVarID="sequence"/>
+<link dstBlockID="1620334838" dstVarID="Regions of interest" srcBlockID="345502676" srcVarID="out"/>
+<link dstBlockID="98203601" dstVarID="workbook" srcBlockID="1620334838" srcVarID="Workbook"/>
+<link dstBlockID="211815333" dstVarID="sequence" srcBlockID="1821937587" srcVarID="sequence"/>
+<link dstBlockID="211815333" dstVarID="name" srcBlockID="1821937587" srcVarID="name"/>
+<link dstBlockID="478683544" dstVarID="folder name" srcBlockID="211815333" srcVarID="name"/>
+<link dstBlockID="1407393703" dstVarID="input file" srcBlockID="478683544" srcVarID="new folder"/>
+<link dstBlockID="1089021354" dstVarID="input file" srcBlockID="478683544" srcVarID="new folder"/>
+<link dstBlockID="98203601" dstVarID="output file" srcBlockID="1407393703" srcVarID="output file"/>
+<link dstBlockID="279905050" dstVarID="file" srcBlockID="1089021354" srcVarID="output file"/>
+</links>
+<variables>
+<input>
+<variable ID="folder" blockID="1760166480" value="C:\Users\k19040176\OneDrive - King's College London\Temp folder\Analysis\DPPC_wo_ICAM" visible="true"/>
+<variable ID="extension" blockID="1760166480" value="" visible="true"/>
+<variable ID="Include sub-folders" blockID="1760166480" value="true" visible="true"/>
+<variable ID="2095572053:input sequence" blockID="2095572053" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM/BUJ4OX~4-1.tif" visible="false"/>
+<variable ID="1876286716:sequence" blockID="1876286716" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM/BUJ4OX~4-1.tif" visible="false"/>
+<variable ID="1318635885:object" blockID="1318635885" value="" visible="false"/>
+<variable ID="1442693514:sequence" blockID="1442693514" value="BUJ4OX~4-1.tif (copy)" visible="false"/>
+<variable ID="1442693514:Type Wanted" blockID="1442693514" value="TIME" visible="false"/>
+<variable ID="126404928:object" blockID="126404928" value="" visible="false"/>
+<variable ID="1443121394:Input" blockID="1443121394" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM_results/BUJ4OX~4-1.tif (copy)_ROI_output.tif" visible="false"/>
+<variable ID="1443121394:Channel" blockID="1443121394" value="1" visible="false"/>
+<variable ID="1443121394:Classes" blockID="1443121394" value="2" visible="false"/>
+<variable ID="1307858533:Input" blockID="1307858533" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM_results/BUJ4OX~4-1.tif (copy)_ROI_output.tif" visible="false"/>
+<variable ID="1307858533:channel" blockID="1307858533" value="1" visible="false"/>
+<variable ID="1307858533:Manual thresholds" blockID="1307858533" value="1071.9370078740158" visible="false"/>
+<variable ID="1307858533:Treat as percentiles" blockID="1307858533" value="false" visible="false"/>
+<variable ID="81858938:List of ROI" blockID="81858938" value="187 ROI" visible="false"/>
+<variable ID="1782446636:rois" blockID="1782446636" value="187 ROI" visible="false"/>
+<variable ID="1782446636:property" blockID="1782446636" value="Area" visible="false"/>
+<variable ID="1782446636:value" blockID="1782446636" value="0.0121" visible="false"/>
+<variable ID="203970758:roi" blockID="203970758" value="187 ROI" visible="false"/>
+<variable ID="203970758:sequence" blockID="203970758" value="Active Sequence" visible="false"/>
+<variable ID="203970758:descriptors" blockID="203970758" value="Area" visible="false"/>
+<variable ID="203970758:operator" blockID="203970758" value="GREATER" visible="false"/>
+<variable ID="203970758:value" blockID="203970758" value="0.0121" visible="false"/>
+<variable ID="1804932202:sequence" blockID="1804932202" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM_results/BUJ4OX~4-1.tif (copy)_ROI_output.tif" visible="false"/>
+<variable ID="1804932202:rois(s)" blockID="1804932202" value="187 ROI" visible="false"/>
+<variable ID="1804932202:remove" blockID="1804932202" value="false" visible="false"/>
+<variable ID="1379853319:input" blockID="1379853319" value="187 ROI" visible="false"/>
+<variable ID="1922150927:target sequence" blockID="1922150927" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM_results/BUJ4OX~4-1.tif (copy)_ROI_output.tif" visible="false"/>
+<variable ID="1922150927:input rois" blockID="1922150927" value="187 ROI" visible="false"/>
+<variable ID="1922150927:replace existing" blockID="1922150927" value="false" visible="false"/>
+<variable ID="345502676:roi" blockID="345502676" value="187 ROI" visible="false"/>
+<variable ID="345502676:sequence" blockID="345502676" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM_results/BUJ4OX~4-1.tif (copy)_ROI_output.tif" visible="false"/>
+<variable ID="345502676:descriptors" blockID="345502676" value="Position T" visible="false"/>
+<variable ID="345502676:reverse" blockID="345502676" value="false" visible="false"/>
+<variable ID="1620334838:measures" blockID="1620334838" value="1682823708936" visible="false"/>
+<variable ID="1620334838:Regions of interest" blockID="1620334838" value="187 ROI" visible="false"/>
+<variable ID="1620334838:Sequence" blockID="1620334838" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM_results/BUJ4OX~4-1.tif (copy)_ROI_output.tif" visible="false"/>
+<variable ID="1821937587:sequence" blockID="1821937587" value="BUJ4OX~4-1.tif (copy)" visible="false"/>
+<variable ID="211815333:sequence" blockID="211815333" value="BUJ4OX~4-1.tif (copy)" visible="false"/>
+<variable ID="211815333:name" blockID="211815333" value="BUJ4OX~4-1.tif (copy)" visible="false"/>
+<variable ID="478683544:parent folder" blockID="478683544" value="C:\Users\k19040176\OneDrive - King's College London\Temp folder\Analysis\DPPC_wo_ICAM_results" visible="false"/>
+<variable ID="478683544:folder name" blockID="478683544" value="BUJ4OX~4-1.tif (copy)" visible="false"/>
+<variable ID="1407393703:input file" blockID="1407393703" value="" visible="false"/>
+<variable ID="1407393703:remove ext." blockID="1407393703" value="false" visible="false"/>
+<variable ID="1407393703:suffix" blockID="1407393703" value="_processed" visible="false"/>
+<variable ID="98203601:workbook" blockID="98203601" value="" visible="false"/>
+<variable ID="98203601:file format" blockID="98203601" value="Spreadsheet" visible="false"/>
+<variable ID="98203601:output file" blockID="98203601" value="" visible="false"/>
+<variable ID="98203601:If file exists" blockID="98203601" value="Overwrite" visible="false"/>
+<variable ID="1089021354:input file" blockID="1089021354" value="" visible="false"/>
+<variable ID="1089021354:remove ext." blockID="1089021354" value="false" visible="false"/>
+<variable ID="1089021354:suffix" blockID="1089021354" value="_ROI_output" visible="false"/>
+<variable ID="279905050:file" blockID="279905050" value="" visible="false"/>
+<variable ID="279905050:sequence" blockID="279905050" value="C:/Users/k19040176/OneDrive - King's College London/Temp folder/Analysis/DPPC_wo_ICAM_results/BUJ4OX~4-1.tif (copy)_ROI_output.tif" visible="false"/>
+<variable ID="279905050:format" blockID="279905050" value="TIFF" visible="false"/>
+<variable ID="279905050:overwrite" blockID="279905050" value="true" visible="false"/>
+<variable ID="279905050:multiple file" blockID="279905050" value="false" visible="false"/>
+</input>
+<output>
+<variable ID="iteration" blockID="1760166480" visible="true"/>
+<variable ID="Sequence" blockID="1760166480" visible="true"/>
+<variable ID="1876286716:duplicated" blockID="1876286716" visible="false"/>
+<variable ID="1442693514:out" blockID="1442693514" visible="false"/>
+<variable ID="1443121394:thresholds" blockID="1443121394" visible="false"/>
+<variable ID="1307858533:output" blockID="1307858533" visible="false"/>
+<variable ID="1307858533:ROI" blockID="1307858533" visible="false"/>
+<variable ID="81858938:List of hole-filled ROI" blockID="81858938" visible="false"/>
+<variable ID="203970758:out" blockID="203970758" visible="false"/>
+<variable ID="1379853319:output" blockID="1379853319" visible="false"/>
+<variable ID="345502676:out" blockID="345502676" visible="false"/>
+<variable ID="1620334838:Workbook" blockID="1620334838" visible="false"/>
+<variable ID="1821937587:metadata" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:name" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:seriesIndex" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:Pixel Size X (mm)" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:Pixel Size Y (mm)" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:Pixel Size Z (mm)" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:Time interval T (ms)" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:positionx" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:positiony" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:positionz" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:originResolution" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:originRegion" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:originZMin" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:originZMax" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:originTMin" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:originTMax" blockID="1821937587" visible="false"/>
+<variable ID="1821937587:originChannel" blockID="1821937587" visible="false"/>
+<variable ID="478683544:new folder" blockID="478683544" visible="false"/>
+<variable ID="1407393703:output file" blockID="1407393703" visible="false"/>
+<variable ID="1089021354:output file" blockID="1089021354" visible="false"/>
+</output>
+</variables>
+</workflow>
+</blocks>
+<links/>
+</protocol>
