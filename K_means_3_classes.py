@@ -19,7 +19,7 @@ output = np.empty((0,2), int)
 #Loop through all the rows
 for i in range(size):  
     if i % 2 == 0:  # True, if the row is even. We only take every other row. 
-        area = data[i, -1] + data[i+1, -1]  # Adds the area from this row and the next one. Can change column that is referenced e.g., Avg. Ch1 is -11. 
+        area = data[i, -1] + data[i+1, -1]  # Adds the area from this row and the next one. Can change column that is referenced e.g., end column is -1. 
         T = data[i, 1]  # Gets the timepoint (frame)
         output = np.append(output, [[T, area]], axis=0) # Adds timepoint and final area to an array
 
